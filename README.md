@@ -1,5 +1,9 @@
 # vue-dischi
 
+## fix-bootstrap
+```
+npm install autoprefixer@10.4.5 --save-exact
+```
 ## Project setup
 ```
 npm install
