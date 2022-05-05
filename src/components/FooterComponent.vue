@@ -57,11 +57,14 @@ export default {
 </script>
 
 <style>
+footer{
+  background-color: #23272d;
+}
 .wrapper{
     display: flex;
     justify-content: center;
     align-content: center;
-    margin-top: 50vh;
+    padding: 20px 0;
 }
 
 .wrapper .icon{
