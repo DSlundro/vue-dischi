@@ -55,10 +55,10 @@ export default {
     },
     computed: {
     filterGenre() {
-        return this.authors.filter(author => {
-            return author.genre.toLowerCase().includes(state.selectGenre.toLowerCase())
+        return this.authors.filter(genre => {
+            return genre.genre.toLowerCase().includes(state.selectGenre.toLowerCase())
             })
-        }
+        },
     },
 };
 </script>
