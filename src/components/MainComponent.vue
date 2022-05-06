@@ -27,6 +27,8 @@ export default {
             authors: null,
             loading: true,
             error: null,
+            genre: null,
+            author: null,
         };
     },
     methods:{
@@ -54,10 +56,27 @@ export default {
         this.timer();
     },
     computed: {
-    filterGenre() {
-        return this.authors.filter(genre => {
-            return genre.genre.toLowerCase().includes(state.selectGenre.toLowerCase())
-            })
+        filterGenre() {
+            return this.authors.filter((author) => {
+                let filteredGenre = true;
+                let filteredAuthor = true;
+
+                if (state.selectGenre.toLowerCase() !== "") {
+                filteredGenre = author.genre
+                    .toLowerCase()
+                    .includes(state.selectGenre.toLowerCase());
+                }
+                
+                if (state.selectAuthor.toLowerCase() !== "") {
+                filteredAuthor = author.author
+                .toLowerCase()
+                .includes(state.selectAuthor.toLowerCase());
+                }
+                
+                if (filteredGenre && filteredAuthor) {
+                return author;
+                }
+            });
         },
     },
 };
@@ -67,7 +86,5 @@ export default {
 <style lang="scss" scoped>
 main{
     background-color: $bg-main;
-
-    
 }
 </style>

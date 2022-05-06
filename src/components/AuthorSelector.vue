@@ -23,7 +23,7 @@
 
 <script>
 export default {
-    name: 'GenreSelector',
+    name: 'AuthorSelector',
     props:{
         selectAuthor: String
     }
