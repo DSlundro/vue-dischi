@@ -6,7 +6,7 @@
             </div>
 
             <div class="col-10 d-flex justify-content-end align-items-center pe-5">
-                <GenreSelector v-model="selectGenre" @changeSelect="changeState" />
+                <GenreSelector v-model="selectGenre" @changeSelectGenre="changeStateGenre" />
             </div>
         </div>
     </header>
@@ -14,13 +14,13 @@
 
 <script>
 import SiteLogo from '@/components/LogoComponent.vue'
-import GenreSelector from '@/components/GenreComponent.vue'
+import GenreSelector from '@/components/GenreSelector.vue'
 import state from '@/state.js'
 
 export default{
     components:{
         SiteLogo,
-        GenreSelector
+        GenreSelector,
     },
     data(){
         return{
@@ -28,10 +28,10 @@ export default{
         }
     },
     methods:{
-        changeState(){
+        changeStateGenre(){
             console.log(this.selectGenre);
             state.selectGenre = this.selectGenre;
-        }
+        },
     },
     computed: '',
 }
