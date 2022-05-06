@@ -2,7 +2,7 @@
     <main>
         <div class="container py-5" v-if="!loading">
             <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
-                <SiteAuthor :element="element" v-for="(element, index) in authors" :key="index" /> 
+                <SiteAuthor :element="element" v-for="(element, index) in filterGenre" :key="index" /> 
             </div>
         </div>
         <div v-else class="d-flex min-vh-100 justify-content-center align-items-center">
@@ -14,6 +14,7 @@
 <script>
 import axios from 'axios'
 import SiteAuthor from '@/components/AuthorComponent.vue';
+import state from '@/state.js'
 
 export default {
     name: 'AuthorsListComponent',
@@ -51,6 +52,13 @@ export default {
     mounted(){
         this.callApi();
         this.timer();
+    },
+    computed: {
+    filterGenre() {
+        return this.authors.filter(author => {
+            return author.genre.toLowerCase().includes(state.selectGenre.toLowerCase())
+            })
+        }
     },
 };
 </script>
