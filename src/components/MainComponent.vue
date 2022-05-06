@@ -1,7 +1,7 @@
 <template>
     <main>
         <div class="container py-5" v-if="!loading">
-            <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
+            <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 min-vh-100">
                 <SiteAuthor :element="element" v-for="(element, index) in filterGenre" :key="index" /> 
             </div>
         </div>
